@@ -916,16 +916,14 @@
 </head>
 
 <body>
-    <!-- 右側の追従ナビ -->
-    <div class="side-nav" id="sideNav">
-        <a href="#section-message">
-            <span>⇩</span>
-            <i class="fas fa-comment"></i>
-        </a>
-    </div>
 
     <div class="container">
-        <h1>すずき写真事務所<br>出張撮影/その他の撮影
+        <h1>
+            <span style="font-size: 18px;">すずき写真事務所</span><br>
+            出張撮影/その他の撮影
+            <div class="info-text">
+                こちらのフォームは携帯専用です。<br>パソコンからは送信できません
+            </div>
         </h1>
         <div class="label">お客様名<span class="required">必須</span></div>
         <input type="text" id="name" placeholder="お名前を入力してください" oninput="saveInput('name')">
@@ -958,7 +956,7 @@
         </div>
 
         <div class="highlight-background">
-            <span class="kibounitizinini">第2希望日《任意》</span>
+            <span class="kibounitizi">第2希望日<span class="required">必須</span></span>
         </div>
 
         <!-- カスタム placeholder 表示用 -->
@@ -968,7 +966,7 @@
         </div>
 
         <div class="highlight-background">
-            <span class="kibounitizinini">第3希望日《任意》</span>
+            <span class="kibounitizinini">第3希望日（任意）</span>
         </div>
 
         <!-- カスタム placeholder 表示用 -->
@@ -977,10 +975,10 @@
             <input type="datetime-local" id="date3" class="datetime-input" placeholder=" " aria-label="タップして日時を入力">
         </div>
 
-        <div class="labelContent">メッセージ<br>（質問等お気軽にご記入ください）</div>
+        <div class="labelContent">ご質問/ご相談</div>
         <textarea id="message" rows="4" placeholder="メッセージを入力してください"></textarea>
 
-        <button class="submit-button" onclick="submitForm()" div id="section-message">予約を行う</button>
+        <button class="submit-button" onclick="submitForm()" div id="section-message">送信</button>
     </div>
 
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
@@ -1045,6 +1043,19 @@
                     });
                 }
             });
+        });
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const ua = navigator.userAgent.toLowerCase();
+            const isLine = ua.includes("line");
+            const isMobile = ua.includes("iphone") || ua.includes("android");
+
+            if (isLine && isMobile) {
+                const infoText = document.querySelector('.info-text');
+                if (infoText) {
+                    infoText.style.display = 'none';
+                }
+            }
         });
 
         function formatDateTime(dateTimeString) {
@@ -1162,7 +1173,7 @@
                 type: 'text',
                 text: `【出張撮影/その他の撮影】\n｟お名前｠\n・${formData.name}\n\n｟ご住所｠\n・${formData.Yourresidentialaddress}\n\n｟電話番号｠\n・${formData.phone}\n\n｟プラン｠\n・${formData.visitCount}\n\n｟撮影内容｠\n・${formData.Businessaddress}\n\n【希望日時】\n｟第一希望日｠\n${formatDate(formData.dates[0])}\n\n｟第二希望日｠\n${formatDate(formData.dates[1])}\n\n｟第三希望日｠\n${formatDate(formData.dates[2])}\n\n｟メッセージ｠\n${formData.message}`
             }]).then(() => {
-                alert('当日キャンセルは無いようにお願いいたします。');
+                alert('お問合せありがとうございます。追って担当者から返信をさせて頂きます。');
                 liff.closeWindow();
             }).catch((err) => {
                 console.error('メッセージの送信に失敗しました', err);
