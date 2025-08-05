@@ -17,7 +17,7 @@
             /* 画面中央に固定 */
             transform: translateY(-50%) translateX(13px);
             /* 中央配置と右ずらし */
-            background: #00b08d;
+            background: #a8b9a7;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -104,7 +104,7 @@
         }
 
         h1 {
-            background: linear-gradient(135deg, #00b08d, #005e4b);
+            background: linear-gradient(135deg, #a8b9a7, #5c6e5b);
             color: white;
             padding: 20px;
             border-radius: 0 15px 0px 45px;
@@ -120,12 +120,46 @@
 
         .label {
             display: block;
-            margin-top: 3px;
-            /* ← 追加 */
+            margin-top: 10px;
+            /* ← ここを変更 */
             margin-bottom: 10px;
             padding: 3px;
             font-weight: 600;
-            background-color: #00b08d;
+            background-color: #a8b9a7;
+            color: white;
+            border-radius: 6px;
+            font-size: 18px;
+            text-align: center;
+            text-indent: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .labelhidarizurasi {
+            display: block;
+            margin-top: 10px;
+            /* ← ここを変更 */
+            margin-bottom: 10px;
+            padding: 3px;
+            font-weight: 600;
+            background-color: #a8b9a7;
+            color: white;
+            border-radius: 6px;
+            font-size: 18px;
+            text-align: center;
+            text-indent: 0px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .labelkakikukeko {
+            display: block;
+            margin-top: 10px;
+            /* ← ここを変更 */
+            margin-bottom: 10px;
+            padding: 3px;
+            font-weight: 600;
+            background-color: #a8b9a7;
             color: white;
             border-radius: 6px;
             font-size: 18px;
@@ -142,7 +176,7 @@
             margin-bottom: 10px;
             padding: 3px;
             font-weight: 600;
-            background-color: #00b08d;
+            background-color: #a8b9a7;
             color: white;
             border-radius: 6px;
             font-size: 18px;
@@ -164,12 +198,12 @@
             align-items: center;
             justify-content: center;
             background: white;
-            color: #00b08d;
+            color: #a8b9a7;
             font-weight: bold;
             font-size: 0.9em;
             border-radius: 4px;
             padding: 2px 6px;
-            border: 2px solid #00b08d;
+            border: 2px solid #a8b9a7;
         }
 
         input[type="text"],
@@ -177,7 +211,7 @@
         textarea {
             width: 100%;
             padding: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 3px;
             border: 1px solid #ccc;
             border-radius: 6px;
             box-sizing: border-box;
@@ -296,7 +330,7 @@
         }
 
         .calendar td.selected {
-            background-color: #00b08d;
+            background-color: #a8b9a7;
             color: #fff;
         }
 
@@ -573,7 +607,7 @@
 
         .highlight-background {
             cursor: pointer;
-            background-color: #00b08d;
+            background-color: #a8b9a7;
             padding: 10px;
             border-radius: 6px;
             font-size: 18px;
@@ -636,7 +670,7 @@
 
         input:focus,
         textarea:focus {
-            border-color: #00b08d;
+            border-color: #a8b9a7;
             outline: none;
             box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
         }
@@ -645,7 +679,7 @@
             padding: 12px;
             border: none;
             border-radius: 6px;
-            background-color: #00b08d;
+            background-color: #a8b9a7;
             color: #000000;
             font-size: 16px;
             cursor: pointer;
@@ -661,11 +695,13 @@
             width: 100%;
             padding: 15px;
             font-size: 18px;
-            background-color: #00b08d;
+            font-weight: bold;
+            /* ← これを追加 */
+            background-color: #a8b9a7;
         }
 
         .submit-button:hover {
-            background-color: #00b08d;
+            background-color: #a8b9a7;
         }
 
         @media (max-width: 768px) {
@@ -714,7 +750,7 @@
             left: 50%;
             transform: translate(-50%, -10px);
             /* Y方向に上げる */
-            background-color: #00b08d;
+            background-color: #a8b9a7;
             color: #fff;
             padding: 3px 12px;
             /* ボックスのパディングを縮小 */
@@ -837,7 +873,7 @@
             /* 内側に3pxのスペースをつける（中身がくっつかないように） */
             font-weight: 600;
             /* 文字を少し太くする（600は太さの目安） */
-            background-color: #00b08d;
+            background-color: #a8b9a7;
             /* 背景の色をくすんだ緑にする */
             color: white;
             /* 文字の色を白にする */
@@ -908,7 +944,7 @@
 
         /* フォーカス時の装飾 */
         #mugwortreservationtime:focus {
-            border-color: #00a683;
+            border-color: #a8b9a7;
             outline: none;
             background-color: #f9fefc;
         }
@@ -945,9 +981,7 @@
         <div class="label">撮影内容<span class="required">必須</span></div>
         <textarea id="Businessaddress" placeholder="撮影内容をご記入ください。"></textarea>
 
-        <div class="highlight-background">
-            <div class="kibounitizi">希望日時<span class="required">必須</span></div>
-        </div>
+        <div class="label">希望日時<span class="required">必須</span></div>
 
         <!-- カスタム placeholder 表示用 -->
         <div class="datetime-wrapper" style="text-align: center;">
@@ -955,9 +989,7 @@
             <input type="datetime-local" id="date1" class="datetime-input" placeholder=" " aria-label="タップして日時を入力">
         </div>
 
-        <div class="highlight-background">
-            <span class="kibounitizi">第2希望日<span class="required">必須</span></span>
-        </div>
+        <div class="label">第2希望日<span class="required">必須</span></div>
 
         <!-- カスタム placeholder 表示用 -->
         <div class="datetime-wrapper" style="text-align: center;">
@@ -965,9 +997,7 @@
             <input type="datetime-local" id="date2" class="datetime-input" placeholder=" " aria-label="タップして日時を入力">
         </div>
 
-        <div class="highlight-background">
-            <span class="kibounitizinini">第3希望日（任意）</span>
-        </div>
+        <div class="labelhidarizurasi">第3希望日</div>
 
         <!-- カスタム placeholder 表示用 -->
         <div class="datetime-wrapper" style="text-align: center;">
